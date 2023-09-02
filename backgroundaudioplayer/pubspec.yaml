@@ -28,12 +28,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  audioplayers: ^0.17.4
+  audio_service: ^0.18.11
+  audioplayers: ^4.1.0
   cupertino_icons: ^1.0.2
+  # flute_music_player: ^0.0.6
   flutter:
     sdk: flutter
-  flutter_audio_service: ^0.3.1
-  just_audio: ^0.6.15+1
+  flutter_local_notifications: ^15.1.1
+  just_audio: ^0.9.34
 
 dev_dependencies:
 

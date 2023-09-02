@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(const MyApp());
-}
+import 'screen/player.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,21 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyHomeScreen(),
+      debugShowCheckedModeBanner: false,
+      home: Player(),
     );
-  }
-}
-
-class MyHomeScreen extends StatefulWidget {
-  const MyHomeScreen({super.key});
-
-  @override
-  State<MyHomeScreen> createState() => _MyHomeScreenState();
-}
-
-class _MyHomeScreenState extends State<MyHomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
