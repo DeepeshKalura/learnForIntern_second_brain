@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/playlist_model.dart';
+import '../../routes/routes_name.dart';
 
 class PlaylistCard extends StatelessWidget {
   const PlaylistCard({
@@ -14,7 +15,11 @@ class PlaylistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //!  Navigator.pushNamed(context, '/playlist', arguments: playlist);
+        Navigator.pushNamed(
+          context,
+          RoutesName.playlistScreen,
+          arguments: playlist,
+        );
         // ! Need to add navigation
       },
       child: Container(

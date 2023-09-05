@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/song_model.dart';
+import '../../routes/routes_name.dart';
 
 class SongCard extends StatelessWidget {
   const SongCard({
@@ -16,6 +17,11 @@ class SongCard extends StatelessWidget {
       onTap: () {
         // Get.toNamed('/song', arguments: song);
         //TODO: Add navigation in this
+        Navigator.pushNamed(
+          context,
+          RoutesName.songScreen,
+          arguments: song,
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
