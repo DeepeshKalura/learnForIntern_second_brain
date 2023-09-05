@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.16"
+  audio_video_progress_bar:
+    dependency: "direct main"
+    description:
+      name: audio_video_progress_bar
+      sha256: "67f3a5ea70d48b48caaf29f5a0606284a6aa3a393736daf9e82bec985d2f9b70"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -168,6 +176,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.5"
+  just_audio:
+    dependency: "direct main"
+    description:
+      name: just_audio
+      sha256: "890cd0fc41a1a4530c171e375a2a3fb6a09d84e9d508c5195f40bcff54330327"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.34"
+  just_audio_platform_interface:
+    dependency: transitive
+    description:
+      name: just_audio_platform_interface
+      sha256: d8409da198bbc59426cd45d4c92fca522a2ec269b576ce29459d6d6fcaeb44df
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.1"
+  just_audio_web:
+    dependency: transitive
+    description:
+      name: just_audio_web
+      sha256: ff62f733f437b25a0ff590f0e295fa5441dcb465f1edbdb33b3dea264705bc13
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.8"
   lints:
     dependency: transitive
     description:
@@ -200,6 +232,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -272,6 +312,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.6"
+  provider:
+    dependency: "direct main"
+    description:
+      name: provider
+      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.5"
   rxdart:
     dependency: transitive
     description:
@@ -293,14 +341,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-  sprintf:
-    dependency: transitive
-    description:
-      name: sprintf
-      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.0"
   sqflite:
     dependency: transitive
     description:
@@ -377,10 +417,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: e03928880bdbcbf496fb415573f5ab7b1ea99b9b04f669c01104d085893c3134
+      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "3.0.7"
   vector_math:
     dependency: transitive
     description:
