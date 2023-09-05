@@ -1,10 +1,13 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
+import '../service/audio_handler.dart';
+
 class NotificationService {
+  static final _audioHandler = MyAudioHandler();
   static Future<void> initializeNotification() async {
     await AwesomeNotifications().initialize(
-      null,
+      null, // ! Will Be added for image
       [
         NotificationChannel(
           channelGroupKey: 'high_importance_channel',
@@ -14,10 +17,9 @@ class NotificationService {
           defaultColor: const Color(0xFF9D50DD),
           ledColor: Colors.white,
           importance: NotificationImportance.Max,
-          channelShowBadge: true,
-          onlyAlertOnce: true,
+          channelShowBadge: false, // don't know
           playSound: true,
-          criticalAlerts: true,
+          criticalAlerts: false,
         )
       ],
       channelGroups: [
@@ -67,7 +69,20 @@ class NotificationService {
   static Future<void> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
     debugPrint('onActionReceivedMethod');
-    final payload = receivedAction.payload ?? {};
+    // final payload = receivedAction.payload ?? {};
+
+    switch (receivedAction.buttonKeyPressed) {
+      case 'PLAY':
+        _audioHandler.play();
+        break;
+      case 'PAUSE':
+        _audioHandler.pause();
+        break;
+      case 'STOP':
+        _audioHandler.dispose();
+        break;
+      default:
+    }
   }
 
   static Future<void> showNotification({
@@ -76,7 +91,8 @@ class NotificationService {
     final String? summary,
     final Map<String, String>? payload,
     final ActionType actionType = ActionType.Default,
-    final NotificationLayout notificationLayout = NotificationLayout.Default,
+    final NotificationLayout notificationLayout =
+        NotificationLayout.MediaPlayer,
     final NotificationCategory? category,
     final String? bigPicture,
     final List<NotificationActionButton>? actionButtons,
@@ -92,13 +108,20 @@ class NotificationService {
         id: -1,
         channelKey: 'high_importance_channel',
         title: title,
-        body: body,
+        // body: body,
         actionType: actionType,
         notificationLayout: notificationLayout,
         summary: summary,
         category: category,
         payload: payload,
         bigPicture: bigPicture,
+        color: Colors.amberAccent,
+        backgroundColor: Colors.green,
+        displayOnBackground: true,
+        displayOnForeground: true,
+        roundedBigPicture: false,
+        badge: 5,
+        fullScreenIntent: true,
       ),
       actionButtons: actionButtons,
       schedule: scheduled
@@ -106,7 +129,7 @@ class NotificationService {
               interval: interval,
               timeZone:
                   await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-              preciseAlarm: true,
+              preciseAlarm: false,
             )
           : null,
     );

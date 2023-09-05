@@ -31,26 +31,28 @@ class _SongScreenState extends State<SongScreen> {
               NotificationService.showNotification(
                 body: "This is song playing in notification",
                 title: "Song ${index + 1}",
-                notificationLayout: NotificationLayout.MediaPlayer,
+                bigPicture:
+                    "https://images.unsplash.com/photo-1642774667024-e9e2f37914d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1907&q=80",
+                notificationLayout: NotificationLayout.BigPicture,
                 actionButtons: [
                   NotificationActionButton(
-                    key: "PLAY",
-                    label: "Play",
-                    // buttonType: ActionButtonType.Default,
-                    enabled: true,
-                    // autoCancel: true,
-                  ),
+                      key: "PLAY",
+                      actionType: ActionType.KeepOnTop,
+                      enabled: true,
+                      label: "teray"
+                      // autoCancel: true,
+                      ),
                   NotificationActionButton(
                     key: "PAUSE",
-                    label: "Pause",
-                    // buttonType: ActionButtonType.Default,
+                    label: "terause",
+                    actionType: ActionType.KeepOnTop,
                     enabled: true,
                     // autoCancel: true,
                   ),
                   NotificationActionButton(
                     key: "STOP",
-                    label: "Stop",
-                    // buttonType: ActionButtonType.Default,
+                    label: "terop",
+                    actionType: ActionType.KeepOnTop,
                     enabled: true,
                     // autoCancel: true,
                   ),

@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-class MyAudioHandler {
-  final _player = AudioPlayer();
+class MyAudioHandler extends ChangeNotifier {
+  final AudioPlayer _player = AudioPlayer();
   final _playlist = ConcatenatingAudioSource(
     children: [
       AudioSource.uri(
@@ -19,6 +20,8 @@ class MyAudioHandler {
       AudioSource.asset("assets/devwohdev.mp3"),
     ],
   );
+
+  get player => _player;
   get playlistLength => _playlist.length;
   AudioPlayer audioPlayer(int index) {
     _player.setAudioSource(_playlist[index]);
@@ -30,27 +33,33 @@ class MyAudioHandler {
   Future<void> play() async {
     _player.setAudioSource(_playlist);
     await _player.play();
+    notifyListeners();
   }
 
   Future<void> pause() async {
     await _player.pause();
+    notifyListeners();
   }
 
   Future<void> next() async {
     await _player.seekToNext();
+    notifyListeners();
   }
 
   Future<void> previous() async {
     await _player.seekToPrevious();
+    notifyListeners();
   }
 
   Future<void> shuffle() async {
     await _player.shuffle();
+    notifyListeners();
   }
 
+  @override
   Future<void> dispose() async {
+    super.dispose();
     await _player.dispose();
+    notifyListeners();
   }
-
-  //TODO: Need all the functionality from player_button.dart
 }
