@@ -22,7 +22,8 @@ class _SongScreenState extends State<SongScreen> {
   void initState() {
     super.initState();
     _songs = widget.song ?? Song.songs[0];
-    _audioController.play(_songs.url); //? No chance it will ever null
+    _audioController.play(_songs.url);
+    //? No chance it will ever null
   }
 
   @override

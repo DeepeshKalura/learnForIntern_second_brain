@@ -6,9 +6,9 @@ import 'controller/notification_controller.dart';
 import 'routes/routes.dart';
 import 'routes/routes_name.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  NotificationController.initial();
+  await NotificationController.initial();
   runApp(const MyApp());
 }
 
