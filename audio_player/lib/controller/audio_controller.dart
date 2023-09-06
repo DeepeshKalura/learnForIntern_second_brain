@@ -6,9 +6,12 @@ import '../view/widget/seek_bar.dart';
 
 class AudioController extends ChangeNotifier {
   final AudioPlayer _audioPlayer = AudioPlayer();
-  get audioPlayer => _audioPlayer;
+  AudioPlayer get audioPlayer => _audioPlayer;
 
   Future<void> play(String link) async {
+    if (_audioPlayer.playing) {
+      await _audioPlayer.stop();
+    }
     await _audioPlayer.setAudioSource(
       ConcatenatingAudioSource(
         children: [

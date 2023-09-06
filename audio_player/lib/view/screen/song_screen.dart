@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 // import 'package:just_audio/just_audio.dart';
 
 import '../../controller/audio_controller.dart';
 import '../../model/song_model.dart';
 import '../widget/player_button.dart';
 import '../widget/seek_bar.dart';
-
-// import 'package:rxdart/rxdart.dart' as rxdart;
 
 class SongScreen extends StatefulWidget {
   const SongScreen({Key? key, required this.song}) : super(key: key);
@@ -47,6 +44,7 @@ class _SongScreenState extends State<SongScreen> {
           _MusicPlayer(
             song: _songs,
             seekBarDataStream: _audioController.seekBarDataStream,
+            audioController: _audioController,
           ),
         ],
       ),
@@ -59,15 +57,16 @@ class _MusicPlayer extends StatelessWidget {
     Key? key,
     required this.song,
     required Stream<SeekBarData> seekBarDataStream,
+    required this.audioController,
   })  : _seekBarDataStream = seekBarDataStream,
         super(key: key);
 
   final Song song;
   final Stream<SeekBarData> _seekBarDataStream;
+  final AudioController audioController;
 
   @override
   Widget build(BuildContext context) {
-    final audioPlayer = Provider.of<AudioController>(context).audioPlayer;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20.0,
@@ -101,11 +100,11 @@ class _MusicPlayer extends StatelessWidget {
               return SeekBar(
                 position: positionData?.position ?? Duration.zero,
                 duration: positionData?.duration ?? Duration.zero,
-                onChangeEnd: audioPlayer.seek,
+                onChangeEnd: audioController.audioPlayer.seek,
               );
             },
           ),
-          const PlayerButtons(),
+          PlayerButtons(audioController: audioController),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
