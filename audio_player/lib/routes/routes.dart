@@ -14,8 +14,11 @@ class Routes {
           builder: (context) => const HomeScreen(),
         );
       case RoutesName.songScreen:
+        final Map arguments = settings.arguments as Map;
         return MaterialPageRoute(
-          builder: (context) => const SongScreen(),
+          builder: (context) => SongScreen(
+            song: arguments['song'],
+          ),
         );
       case RoutesName.playlistScreen:
         return MaterialPageRoute(

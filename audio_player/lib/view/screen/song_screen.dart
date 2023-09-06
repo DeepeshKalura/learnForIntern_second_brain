@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:rxdart/rxdart.dart' as rxdart;
+import 'package:provider/provider.dart';
+// import 'package:just_audio/just_audio.dart';
 
+import '../../controller/audio_controller.dart';
 import '../../model/song_model.dart';
 import '../widget/player_button.dart';
 import '../widget/seek_bar.dart';
@@ -9,48 +10,23 @@ import '../widget/seek_bar.dart';
 // import 'package:rxdart/rxdart.dart' as rxdart;
 
 class SongScreen extends StatefulWidget {
-  const SongScreen({Key? key}) : super(key: key);
+  const SongScreen({Key? key, required this.song}) : super(key: key);
+  final Song? song;
 
   @override
   State<SongScreen> createState() => _SongScreenState();
 }
 
 class _SongScreenState extends State<SongScreen> {
-  AudioPlayer audioPlayer = AudioPlayer();
-  Song song = Song.songs[0]; // ! Add controller;
+  final _audioController = AudioController();
+  late Song _songs;
 
   @override
   void initState() {
     super.initState();
-
-    audioPlayer.setAudioSource(
-      ConcatenatingAudioSource(
-        children: [
-          AudioSource.uri(
-            Uri.parse('asset:///${song.url}'),
-          ),
-        ],
-      ),
-    );
+    _songs = widget.song ?? Song.songs[0];
+    _audioController.play(_songs.url); //? No chance it will ever null
   }
-
-  @override
-  void dispose() {
-    audioPlayer.dispose();
-    super.dispose();
-  }
-
-  Stream<SeekBarData> get _seekBarDataStream =>
-      rxdart.Rx.combineLatest2<Duration, Duration?, SeekBarData>(
-          audioPlayer.positionStream, audioPlayer.durationStream, (
-        Duration position,
-        Duration? duration,
-      ) {
-        return SeekBarData(
-          position,
-          duration ?? Duration.zero,
-        );
-      });
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +40,13 @@ class _SongScreenState extends State<SongScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            song.coverUrl,
+            _songs.coverUrl,
             fit: BoxFit.cover,
           ),
           const _BackgroundFilter(),
           _MusicPlayer(
-            song: song,
-            seekBarDataStream: _seekBarDataStream,
-            audioPlayer: audioPlayer,
+            song: _songs,
+            seekBarDataStream: _audioController.seekBarDataStream,
           ),
         ],
       ),
@@ -84,16 +59,15 @@ class _MusicPlayer extends StatelessWidget {
     Key? key,
     required this.song,
     required Stream<SeekBarData> seekBarDataStream,
-    required this.audioPlayer,
   })  : _seekBarDataStream = seekBarDataStream,
         super(key: key);
 
   final Song song;
   final Stream<SeekBarData> _seekBarDataStream;
-  final AudioPlayer audioPlayer;
 
   @override
   Widget build(BuildContext context) {
+    final audioPlayer = Provider.of<AudioController>(context).audioPlayer;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20.0,
@@ -131,7 +105,7 @@ class _MusicPlayer extends StatelessWidget {
               );
             },
           ),
-          PlayerButtons(audioPlayer: audioPlayer),
+          const PlayerButtons(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,

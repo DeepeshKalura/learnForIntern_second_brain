@@ -15,12 +15,10 @@ class SongCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Get.toNamed('/song', arguments: song);
-        //TODO: Add navigation in this
         Navigator.pushNamed(
           context,
           RoutesName.songScreen,
-          arguments: song,
+          arguments: {'song': song},
         );
       },
       child: Container(
