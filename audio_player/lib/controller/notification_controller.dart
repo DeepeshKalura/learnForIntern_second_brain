@@ -76,6 +76,18 @@ class NotificationController {
           autoDismissible: false,
           actionType: ActionType.KeepOnTop,
         ),
+        NotificationActionButton(
+          key: 'previous',
+          label: 'Previous',
+          autoDismissible: false,
+          actionType: ActionType.KeepOnTop,
+        ),
+        NotificationActionButton(
+          key: 'stop',
+          label: 'Stop',
+          autoDismissible: false,
+          actionType: ActionType.KeepOnTop,
+        ),
       ],
     );
   }
