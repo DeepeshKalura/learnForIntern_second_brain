@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'controller/audio_controller.dart';
-import 'controller/notification_controller.dart';
-import 'routes/routes.dart';
-import 'routes/routes_name.dart';
+
+import 'controller/routes/routes.dart';
+import 'controller/routes/routes_name.dart';
+import 'util/app_colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await NotificationController.initial();
   runApp(const MyApp());
 }
 
@@ -23,11 +23,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Music Player',
         theme: ThemeData(
+          primarySwatch: AppColors.firstColor,
           textTheme: Theme.of(context).textTheme.apply(
-                bodyColor: Colors.white,
-                displayColor: Colors.white,
+                bodyColor: AppColors.secondWhiteColor,
+                displayColor: AppColors.secondWhiteColor,
               ),
         ),
         onGenerateRoute: Routes.generateRoute,

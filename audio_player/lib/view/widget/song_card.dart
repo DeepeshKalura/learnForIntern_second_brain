@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../model/song_model.dart';
-import '../../routes/routes_name.dart';
+import '../../controller/routes/routes_name.dart';
+import '../../util/app_colors.dart';
 
 class SongCard extends StatelessWidget {
   const SongCard({
@@ -44,7 +45,7 @@ class SongCard extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Colors.white.withOpacity(0.8),
+                color: AppColors.secondWhiteColor.withOpacity(0.9),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -56,14 +57,15 @@ class SongCard extends StatelessWidget {
                       Text(
                         song.title,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: Colors.deepPurple,
+                              color: AppColors.firstColor,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
                       Text(
                         song.description,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Colors.white,
+                              color:
+                                  AppColors.thirdBlackColor.withOpacity(0.45),
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -71,7 +73,7 @@ class SongCard extends StatelessWidget {
                   ),
                   const Icon(
                     Icons.play_circle,
-                    color: Colors.deepPurple,
+                    color: AppColors.firstColor,
                   ),
                 ],
               ),

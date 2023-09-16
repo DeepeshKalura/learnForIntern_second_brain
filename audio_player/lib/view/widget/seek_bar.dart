@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:audio_player/util/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class SeekBarData {
@@ -59,10 +60,10 @@ class _SeekBarState extends State<SeekBar> {
               overlayShape: const RoundSliderOverlayShape(
                 overlayRadius: 10,
               ),
-              activeTrackColor: Colors.white.withOpacity(0.2),
-              inactiveTrackColor: Colors.white,
-              thumbColor: Colors.white,
-              overlayColor: Colors.white,
+              activeTrackColor: AppColors.secondWhiteColor.withOpacity(0.2),
+              inactiveTrackColor: AppColors.secondWhiteColor,
+              thumbColor: AppColors.secondWhiteColor,
+              overlayColor: AppColors.secondWhiteColor,
             ),
             child: Slider(
               min: 0.0,

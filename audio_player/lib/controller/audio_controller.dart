@@ -3,7 +3,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart' as rxdart;
 
 import '../view/widget/seek_bar.dart';
-import 'notification_controller.dart';
 
 class AudioController extends ChangeNotifier {
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -23,7 +22,6 @@ class AudioController extends ChangeNotifier {
       ),
     );
     await _audioPlayer.play();
-    await NotificationController.showMediaPlayerNotification();
 
     notifyListeners();
   }
@@ -44,6 +42,12 @@ class AudioController extends ChangeNotifier {
       index: audioPlayer.effectiveIndices!.first,
     );
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
   Stream<SeekBarData> get seekBarDataStream =>

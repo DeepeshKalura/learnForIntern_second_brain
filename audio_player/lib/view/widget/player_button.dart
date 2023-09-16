@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../../controller/audio_controller.dart';
+import '../../util/app_colors.dart';
 
 class PlayerButtons extends StatelessWidget {
   const PlayerButtons({
@@ -26,7 +27,7 @@ class PlayerButtons extends StatelessWidget {
               iconSize: 45,
               icon: const Icon(
                 Icons.skip_previous,
-                color: Colors.white,
+                color: AppColors.secondWhiteColor,
               ),
             );
           },
@@ -52,14 +53,14 @@ class PlayerButtons extends StatelessWidget {
                   iconSize: 75,
                   icon: const Icon(
                     Icons.play_circle,
-                    color: Colors.white,
+                    color: AppColors.secondWhiteColor,
                   ),
                 );
               } else if (processingState != ProcessingState.completed) {
                 return IconButton(
                   icon: const Icon(
                     Icons.pause_circle,
-                    color: Colors.white,
+                    color: AppColors.secondWhiteColor,
                   ),
                   iconSize: 75.0,
                   onPressed: audioPlayer.pause,
@@ -68,7 +69,7 @@ class PlayerButtons extends StatelessWidget {
                 return IconButton(
                   icon: const Icon(
                     Icons.replay_circle_filled_outlined,
-                    color: Colors.white,
+                    color: AppColors.secondWhiteColor,
                   ),
                   iconSize: 75.0,
                   onPressed: () => audioPlayer.seek(
@@ -90,7 +91,7 @@ class PlayerButtons extends StatelessWidget {
               iconSize: 45,
               icon: const Icon(
                 Icons.skip_next,
-                color: Colors.white,
+                color: AppColors.secondWhiteColor,
               ),
             );
           },

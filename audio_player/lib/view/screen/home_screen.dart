@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../model/playlist_model.dart';
 import '../../model/song_model.dart';
+import '../../util/app_colors.dart';
 import '../widget/playlist_card.dart';
 import '../widget/section_header.dart';
 import '../widget/song_card.dart';
@@ -20,8 +21,8 @@ class HomeScreen extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
+            AppColors.firstColor.shade800.withOpacity(0.8),
+            AppColors.firstColor.shade200.withOpacity(0.8),
           ],
         ),
       ),
@@ -141,7 +142,7 @@ class _DiscoverMusic extends StatelessWidget {
             decoration: InputDecoration(
               isDense: true,
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.secondWhiteColor,
               hintText: 'Search',
               hintStyle: Theme.of(context)
                   .textTheme
@@ -169,7 +170,7 @@ class _CustomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.deepPurple.shade800,
+      backgroundColor: AppColors.firstColor.shade800,
       unselectedItemColor: Colors.white,
       selectedItemColor: Colors.white,
       showUnselectedLabels: false,
@@ -211,9 +212,10 @@ class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         Container(
           margin: const EdgeInsets.only(right: 20),
           child: const CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://images.unsplash.com/photo-1659025435463-a039676b45a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-            ),
+            backgroundImage: AssetImage('assets/images/shiva.jpg'),
+            // backgroundImage: NetworkImage(
+            //   'https://images.unsplash.com/photo-1659025435463-a039676b45a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+            // ),
           ),
         ),
       ],

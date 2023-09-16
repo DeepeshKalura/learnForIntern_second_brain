@@ -1,3 +1,4 @@
+import 'package:audio_player/util/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -18,16 +19,15 @@ class SectionHeader extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Colors.white,
+                color: AppColors.secondWhiteColor,
                 fontWeight: FontWeight.bold,
               ),
         ),
         Text(
           action,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Colors.white),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: AppColors.secondWhiteColor,
+              ),
         ),
       ],
     );

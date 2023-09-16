@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/playlist_model.dart';
+import '../../util/app_colors.dart';
 
 class PlaylistScreen extends StatelessWidget {
   const PlaylistScreen({Key? key}) : super(key: key);
@@ -15,8 +16,8 @@ class PlaylistScreen extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
+            AppColors.firstColor.shade800.withOpacity(0.8),
+            AppColors.firstColor.shade200.withOpacity(0.8),
           ],
         ),
       ),
@@ -112,7 +113,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
         height: 50,
         width: width,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.secondWhiteColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Stack(
@@ -124,7 +125,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                 height: 50,
                 width: width * 0.45,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple.shade400,
+                  color: AppColors.firstColor.shade400,
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
@@ -139,7 +140,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                         child: Text(
                           'Play',
                           style: TextStyle(
-                            color: isPlay ? Colors.white : Colors.deepPurple,
+                            color: isPlay ? Colors.white : AppColors.firstColor,
                             fontSize: 17,
                           ),
                         ),
@@ -147,7 +148,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                       const SizedBox(width: 10),
                       Icon(
                         Icons.play_circle,
-                        color: isPlay ? Colors.white : Colors.deepPurple,
+                        color: isPlay ? Colors.white : AppColors.firstColor,
                       ),
                     ],
                   ),
@@ -160,7 +161,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                         child: Text(
                           'Shuffle',
                           style: TextStyle(
-                            color: isPlay ? Colors.deepPurple : Colors.white,
+                            color: isPlay ? AppColors.firstColor : Colors.white,
                             fontSize: 17,
                           ),
                         ),
@@ -168,7 +169,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                       const SizedBox(width: 10),
                       Icon(
                         Icons.shuffle,
-                        color: isPlay ? Colors.deepPurple : Colors.white,
+                        color: isPlay ? AppColors.firstColor : Colors.white,
                       ),
                     ],
                   ),

@@ -1,3 +1,4 @@
+import 'package:audio_player/util/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../controller/audio_controller.dart';
@@ -23,6 +24,12 @@ class _SongScreenState extends State<SongScreen> {
     _songs = widget.song ?? Song.songs[0];
     _audioController.play(_songs.url);
     //? No chance it will ever null
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _audioController.dispose();
   }
 
   @override
@@ -163,8 +170,8 @@ class _BackgroundFilter extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.deepPurple.shade200,
-              Colors.deepPurple.shade800,
+              AppColors.firstColor.shade200,
+              AppColors.firstColor.shade800,
             ],
           ),
         ),

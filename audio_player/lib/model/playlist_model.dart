@@ -13,22 +13,22 @@ class Playlist {
 
   static List<Playlist> playlists = [
     Playlist(
-      title: 'Hip-hop R&B Mix',
+      title: 'Kalish Kher',
       songs: Song.songs,
       imageUrl:
-          'https://images.unsplash.com/photo-1576525865260-9f0e7cfb02b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80',
+          'https://images.unsplash.com/photo-1606967365396-f6b8765c68cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80',
     ),
     Playlist(
-      title: 'Rock & Roll',
+      title: 'Adiyogi',
       songs: Song.songs,
       imageUrl:
-          'https://images.unsplash.com/photo-1629276301820-0f3eedc29fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2848&q=80',
+          'https://images.unsplash.com/photo-1609609830354-8f615d61b9c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80',
     ),
     Playlist(
-      title: 'Techno',
+      title: 'Shiva Tandav',
       songs: Song.songs,
       imageUrl:
-          'https://images.unsplash.com/photo-1594623930572-300a3011d9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+          'https://images.unsplash.com/photo-1642774667024-e9e2f37914d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpdmF8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=500&q=60',
     )
   ];
 }
